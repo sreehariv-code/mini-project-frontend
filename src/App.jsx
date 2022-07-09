@@ -11,9 +11,11 @@ function App() {
       <div className="App">
         <Router>
           <Navbar />
-          <Routes>
-            <Route element={<HomePage />} path="/" exact />
-          </Routes>
+          <div className="main-container">
+            <Routes>
+              <Route element={<HomePage />} path="/" exact />
+            </Routes>
+          </div>
         </Router>
       </div>
     </DataProvider>
