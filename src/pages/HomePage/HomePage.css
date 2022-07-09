@@ -1,0 +1,16 @@
+.user-name {
+  margin-left: 5%;
+}
+.book-section {
+  display: flex;
+  gap: 10px;
+  padding-left: 20px;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.book-section::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.brand-name {
+  font-size: 20px;
+  background: #8e2de2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #8e2de2 #4a00e0
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #8e2de2,
+    #4a00e0
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #9400ff;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    right: 10%;
+  }
+}
