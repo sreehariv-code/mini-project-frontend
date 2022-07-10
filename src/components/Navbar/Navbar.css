@@ -70,14 +70,22 @@
     flex-direction: column;
     position: absolute;
     border-radius: 20px;
-    top: 6%;
-    right: 4%;
+
+    top: 120px;
+    right: 23px;
     display: none;
+    background: rgba(142, 45, 226); /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to left,
+      rgba(74, 0, 224, 0.7),
+      rgba(142, 45, 226, 0.5)
+    ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
-      to right bottom,
-      rgba(255, 255, 255, 0.7),
-      rgba(51, 50, 50, 0.6)
-    );
+      to left,
+      rgba(74, 0, 224, 0.7),
+      rgba(142, 45, 226, 0.5)
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     max-height: 100vh;
     min-height: 320px;
     width: 50%;
@@ -86,5 +94,9 @@
   }
   .nav-links.active {
     display: flex;
+  }
+
+  .nav-links a {
+    color: #fff;
   }
 }
