@@ -1,21 +1,20 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 15px 20px;
+  align-items: center;
+  position: fixed;
+  width: 100%;
 }
 
 .brand-name {
   font-size: 20px;
-  background: #8e2de2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #8e2de2 #4a00e0
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #8e2de2,
-    #4a00e0
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #8e2de2;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #8e2de2 #4a00e0);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #8e2de2, #4a00e0);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -37,6 +36,7 @@
   width: 50px;
   height: 50px;
   background-color: transparent;
+  position: relative;
   display: none;
   gap: 5px;
   border-radius: 10px;
@@ -50,13 +50,39 @@
   background: #8e2de2;
   background: -webkit-linear-gradient(to left, #8e2de2 #4a00e0);
   background: linear-gradient(to left, #8e2de2, #4a00e0);
-
+  position: absolute;
   border-radius: 4px;
+  transition: all 0.15s ease-in;
 }
 
+.hamburger-button span:first-child {
+  width: 13.5px;
+  top: 12px;
+  left: 12.5px;
+}
+
+.hamburger-button span:last-child {
+  width: 13.5px;
+  bottom: 12px;
+  right: 12.5px;
+}
+.hamburger-button.active span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+.hamburger-button.active span:first-child {
+  transform: rotate(45deg);
+  top: 19px;
+  left: 15px;
+}
+
+.hamburger-button.active span:last-child {
+  transform: rotate(45deg);
+  bottom: 18px;
+  right: 14px;
+  z-index: -1;
+}
 @media screen and (max-width: 768px) {
   .hamburger-button {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,26 +98,25 @@
     border-radius: 20px;
 
     top: 120px;
-    right: 23px;
     display: none;
-    background: rgba(142, 45, 226); /* fallback for old browsers */
+    background: rgba(142, 45, 226);
+    /* fallback for old browsers */
     background: -webkit-linear-gradient(
       to left,
-      rgba(74, 0, 224, 0.7),
-      rgba(142, 45, 226, 0.5)
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to left,
-      rgba(74, 0, 224, 0.7),
-      rgba(142, 45, 226, 0.5)
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      rgb(74, 0, 224),
+      rgb(142, 45, 226)
+    );
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, rgb(74, 0, 224), rgb(142, 45, 226));
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     max-height: 100vh;
     min-height: 320px;
-    width: 50%;
+    width: 90%;
     padding: 40px 0;
     margin: 0 auto;
   }
+
   .nav-links.active {
     display: flex;
   }

@@ -1,3 +1,7 @@
 .App {
   position: relative;
 }
+
+.main-container {
+  padding-top: 112px;
+}
