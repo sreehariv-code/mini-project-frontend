@@ -58,12 +58,12 @@ const LoginPage = () => {
     return (
       <div className="login-form">
         <h1>{isLoginPage ? "Login" : "Welcome"}</h1>
-        <form onSubmit={handleLogin}>
+        <form className="form-container" onSubmit={handleLogin}>
           <div className="username-container">
             <label>Username</label>
             <input
-              type="email"
-              name="email"
+              type="text"
+              name="username"
               required
               placeholder="eg:John Doe"
             />

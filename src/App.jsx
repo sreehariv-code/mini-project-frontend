@@ -1,7 +1,7 @@
 import { useState } from "react";
 import userData from "./data/userData";
 import { DataProvider } from "./utils/DataContext";
-import AboutPage from "./pages/AboutPage/AboutPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 import "./App.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  console.log(userData);
+  // console.log(userData);
   // window.onscroll = function (e) {
   //   console.log(window.scrollY);
   // };
@@ -21,7 +21,7 @@ function App() {
           <div className="main-container">
             <Routes>
               <Route element={<HomePage />} path="/" exact />
-              <Route element={<AboutPage />} path="/about" />
+              <Route element={<SearchPage />} path="/search" />
               <Route element={<LoginPage />} path="/login" />
             </Routes>
           </div>

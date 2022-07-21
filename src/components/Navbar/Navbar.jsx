@@ -5,7 +5,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false); //button state
-  console.log(sidebar);
+  // console.log(sidebar);
   // const [btnActive, setBtnActive] = useState(false);
   // console.log(sidebar, btnActive);
 
@@ -19,7 +19,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="brand-name">
-        <h1>DigiLib</h1>
+        <Link to="/">
+          <h1>DigiLib</h1>
+        </Link>
       </div>
       {/*Hamburger Menu*/}
       <div
@@ -35,11 +37,11 @@ const Navbar = () => {
         <Link onClick={toggleSideNavbar} to="/">
           Home
         </Link>
-        <Link onClick={toggleSideNavbar} to="/about">
-          About
-        </Link>
         <Link onClick={toggleSideNavbar} to="/login">
           Login
+        </Link>
+        <Link onClick={toggleSideNavbar} to="/search">
+          Search
         </Link>
       </div>
     </nav>
