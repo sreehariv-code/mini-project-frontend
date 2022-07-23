@@ -6,7 +6,12 @@ const SearchPage = () => {
   const data = useContext(DataContext);
 
   const [items, setItems] = useState(data.bookData);
+  const [visible, setVisible] = useState(3);
   const searchArray = items.books;
+
+  function showMoreItems() {
+    setVisible((prevValue) => prevValue + 3);
+  }
   const styles = {
     cursor: "pointer",
   };
@@ -21,7 +26,7 @@ const SearchPage = () => {
         </button>
       </div>
       <div className="searched-contents">
-        {searchArray.slice(0, 3).map((item) => (
+        {searchArray.slice(0, visible).map((item) => (
           <BookCard key={item.id} {...item} />
         ))}
       </div>

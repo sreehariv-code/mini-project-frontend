@@ -5,6 +5,7 @@
   align-items: center;
   position: fixed;
   width: 100%;
+  background: #fff;
 }
 
 .brand-name {
@@ -98,6 +99,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .brand-name {
+    font-size: 20px;
+  }
   .nav-links {
     flex-direction: column;
     position: absolute;
