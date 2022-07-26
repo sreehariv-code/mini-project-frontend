@@ -1,36 +1,49 @@
 import React, { useContext, useEffect, useState } from "react";
 import BookCard from "../../components/BookCard/BookCard";
 import { DataContext } from "../../utils/DataContext";
+import "./SearchPage.css";
 
 const SearchPage = () => {
   const data = useContext(DataContext);
 
   const [items, setItems] = useState(data.bookData);
-  const [visible, setVisible] = useState(3);
+  // const [visible, setVisible] = useState(3);
   const searchArray = items.books;
+  const [searchTerm, setSearchTerm] = useState("");
 
   function showMoreItems() {
     setVisible((prevValue) => prevValue + 3);
   }
-  const styles = {
-    cursor: "pointer",
-  };
 
   return (
-    <div>
-      <h1>Search Page</h1>
+    <div className="search-container">
+      {/* <h1>Search Page</h1> */}
       <div className="search-form">
-        <input type="text" />
-        <button style={styles} className="search-button">
-          Search
-        </button>
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+          }}
+        />
       </div>
       <div className="searched-contents">
-        {searchArray.slice(0, visible).map((item) => (
-          <BookCard key={item.id} {...item} />
-        ))}
+        {searchArray
+          .filter((val) => {
+            if (searchTerm == "") {
+              return null;
+            } else if (
+              val.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            }
+          })
+          .map((item) => (
+            <BookCard key={item.id} {...item} />
+            // <div>{item.name}</div>
+          ))}
       </div>
-      <button onClick={showMoreItems}>Load More</button>
+      {/* <button onClick={showMoreItems}>Load More</button> */}
     </div>
   );
 };

@@ -1,0 +1,26 @@
+.search-form input{
+    border: 2px solid #4f03e0;
+    padding:15px 20px;
+    min-width:325px;
+    margin-left:20px;
+    outline: none;
+    border-radius: 10px;
+}
+.searched-contents{
+    width:100%;
+    min-height: 200px;
+    display:flex;
+    flex-wrap: wrap;
+    gap:20px;
+    padding:3rem;
+}
+
+@media screen and (max-width:500px) {
+    .searched-contents{
+        flex-direction: column;
+        padding:0;
+        align-items: center;
+        padding-top: 4rem;
+    }    
+}
+

@@ -1,0 +1,87 @@
+.login-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 600px;
+  height: calc(100vh - 112px);
+}
+
+.login-page-container h1 {
+  margin-bottom: 20px;
+}
+
+.login-logo {
+  height: 100px;
+}
+
+.form-container {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.login-form {
+  min-width: 275px;
+  max-width: 450px;
+  width: 80%;
+  min-height: 400px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  padding: 20px;
+}
+
+.login-form h1 {
+  text-align: center;
+}
+
+.user-direc a {
+  margin-left: 10px;
+  cursor: pointer;
+  color: blue;
+  text-decoration: none;
+}
+
+.email-container,
+.password-container,
+.username-container {
+  min-width: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.email-container input,
+.password-container input,
+.username-container input {
+  /* border: none; */
+  width: 100%;
+  border-radius: 20px;
+  outline: none;
+  padding: 10px 15px;
+  border: 2px solid #641ae6;
+}
+
+.button-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-section button {
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  background: #641ae6;
+  margin-bottom: 2em;
+  width: 50%;
+  min-width: 150px;
+  min-height: 30px;
+}

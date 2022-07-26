@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const LoginPage = () => {
   //States for registration
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const username = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
   //States for checking the errors
   const [submitted, setSubmitted] = useState(false);
@@ -16,28 +19,35 @@ const LoginPage = () => {
   const [isLoginPage, setIsLoginPage] = useState(true);
   const navigate = useNavigate();
 
-  //handle name change
-  const handleName = (e) => {
-    setName(e.target.value);
-    setSubmitted(false);
-  };
+  //Clicking Register button
 
-  //handle email change
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-    setSubmitted(false);
-    console.log(email);
-  };
+  // //handle name change
+  // const handleName = (e) => {
+  //   setName(e.target.value);
+  //   // setSubmitted(false);
+  // };
 
-  //handle password change
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-    setSubmitted(false);
-  };
+  // //handle email change
+  // const handleEmail = (e) => {
+  //   setEmail(e.target.value);
+  //   // setSubmitted(false);
+  //   // console.log(email);
+  // };
+
+  // //handle password change
+  // const handlePassword = (e) => {
+  //   setPassword(e.target.value);
+  //   setSubmitted(false);
+  // };
   const handleLogin = (e) => {
     //prevent page reload
     e.preventDefault();
     navigate("/");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(username.current.value);
   };
   //Login component
   const Login = () => {
@@ -46,13 +56,7 @@ const LoginPage = () => {
         <h1>{isLoginPage ? "Login" : "Welcome"}</h1>
         <form className="form-container" onSubmit={handleLogin}>
           <div className="email-container">
-            <input
-              type="email"
-              required
-              placeholder="Enter your email"
-              // value={email}
-              // onChange={handleEmail}
-            />
+            <input type="email" required placeholder="Enter your email" />
           </div>
           <div className="password-container">
             <input type="password" required placeholder="Enter your password" />
@@ -84,10 +88,16 @@ const LoginPage = () => {
     return (
       <div className="login-form">
         <h1>{isLoginPage ? "Login" : "Welcome"}</h1>
-        <form className="form-container">
+        <form className="form-container" onSubmit={handleSubmit}>
           <div className="username-container">
             <label>Username</label>
-            <input type="text" required placeholder="eg:John Doe" />
+            <input
+              type="text"
+              required
+              placeholder="eg:John Doe"
+              name="username"
+              ref={username}
+            />
           </div>
           <div className="email-container">
             <label>Email</label>
