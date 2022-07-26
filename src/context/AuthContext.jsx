@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import {
   createUserWithEmailAndPassword,
@@ -11,8 +11,17 @@ import { auth } from "../firebase";
 const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
   const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setUser(user);
+        // console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (
