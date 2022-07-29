@@ -5,11 +5,11 @@ import SearchPage from "./pages/SearchPage/SearchPage";
 import "./App.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 // import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import Navbar from "./components/Navbar/Navbar";
 import { Routes, Route } from "react-router-dom";
-import { AuthContextProvider } from "./context/UserAuthContext";
 
 function App() {
   // console.log(userData);
@@ -21,14 +21,13 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="main-container">
-          <AuthContextProvider>
-            <Routes>
-              <Route element={<HomePage />} path="/" exact />
-              <Route element={<SearchPage />} path="/search" />
-              <Route element={<Login />} path="/login" />
-              <Route element={<Signup />} path="/signup" />
-            </Routes>
-          </AuthContextProvider>
+          <Routes>
+            <Route element={<HomePage />} path="/" exact />
+            <Route element={<SearchPage />} path="/search" />
+            <Route element={<Login />} path="/login" />
+            <Route element={<Signup />} path="/signup" />
+            <Route element={<ProfilePage />} path="/profile" />
+          </Routes>
         </div>
       </div>
     </DataProvider>

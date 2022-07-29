@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { UserAuth } from "../context/UserAuthContext";
 
@@ -8,7 +8,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const navigate = useNavigate();
   const { createUser } = UserAuth();
 
   const handleSubmit = async (e) => {
@@ -16,6 +16,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       await createUser(email, password);
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
@@ -39,6 +40,7 @@ const SignUp = () => {
           <div className="email-container">
             <label>Email</label>
             <input
+              required
               type="email"
               placeholder="eg.johndoe123@gmail.com"
               onChange={(e) => setEmail(e.target.value)}
@@ -47,6 +49,7 @@ const SignUp = () => {
           <div className="password-container">
             <label>Password</label>
             <input
+              required
               type="password"
               placeholder="Enter your password"
               onChange={(e) => setPassword(e.target.value)}

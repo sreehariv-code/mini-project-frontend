@@ -43,6 +43,9 @@ const Navbar = () => {
         <Link onClick={toggleSideNavbar} to="/search">
           Search
         </Link>
+        <Link onClick={toggleSideNavbar} to="/profile">
+          Profile
+        </Link>
       </div>
     </nav>
   );
