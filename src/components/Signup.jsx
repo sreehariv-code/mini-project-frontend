@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import { UserAuth } from "../context/UserAuthContext";
+
 const SignUp = () => {
-  const [user, setUser] = useState("");
+  // const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -48,7 +49,7 @@ const SignUp = () => {
             <input
               type="password"
               placeholder="Enter your password"
-              onChange={(e) => setPassword(e.target.target)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="button-section">

@@ -9,6 +9,7 @@ import Signup from "./components/Signup";
 import HomePage from "./pages/HomePage/HomePage";
 import Navbar from "./components/Navbar/Navbar";
 import { Routes, Route } from "react-router-dom";
+import { AuthContextProvider } from "./context/UserAuthContext";
 
 function App() {
   // console.log(userData);
@@ -20,12 +21,14 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="main-container">
-          <Routes>
-            <Route element={<HomePage />} path="/" exact />
-            <Route element={<SearchPage />} path="/search" />
-            <Route element={<Login />} path="/login" />
-            <Route element={<Signup />} path="/signup" />
-          </Routes>
+          <AuthContextProvider>
+            <Routes>
+              <Route element={<HomePage />} path="/" exact />
+              <Route element={<SearchPage />} path="/search" />
+              <Route element={<Login />} path="/login" />
+              <Route element={<Signup />} path="/signup" />
+            </Routes>
+          </AuthContextProvider>
         </div>
       </div>
     </DataProvider>
