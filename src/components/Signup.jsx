@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import { UserAuth } from "../context/AuthContext";
+import { UserAuth } from "../context/UserAuthContext";
 const SignUp = () => {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -9,14 +9,14 @@ const SignUp = () => {
   const [error, setError] = useState("");
 
   const { createUser } = UserAuth();
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
     setError("");
+    e.preventDefault();
     try {
       await createUser(email, password);
     } catch (err) {
       setError(err.message);
-      console.log(err.message);
     }
   };
   return (
