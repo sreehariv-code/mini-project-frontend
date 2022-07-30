@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import BookCard from "../../components/BookCard/BookCard";
+import Wrapper from "../../components/Wrapper";
 import { DataContext } from "../../utils/DataContext";
 import "./SearchPage.css";
 
@@ -16,35 +17,37 @@ const SearchPage = () => {
   }
 
   return (
-    <div className="search-container">
-      {/* <h1>Search Page</h1> */}
-      <div className="search-form">
-        <input
-          type="text"
-          placeholder="Search..."
-          onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }}
-        />
+    <Wrapper>
+      <div className="search-container">
+        {/* <h1>Search Page</h1> */}
+        <div className="search-form">
+          <input
+            type="text"
+            placeholder="Search..."
+            onChange={(event) => {
+              setSearchTerm(event.target.value);
+            }}
+          />
+        </div>
+        <div className="searched-contents">
+          {searchArray
+            .filter((val) => {
+              if (searchTerm == "") {
+                return null;
+              } else if (
+                val.name.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return val;
+              }
+            })
+            .map((item) => (
+              <BookCard key={item.id} {...item} />
+              // <div>{item.name}</div>
+            ))}
+        </div>
+        {/* <button onClick={showMoreItems}>Load More</button> */}
       </div>
-      <div className="searched-contents">
-        {searchArray
-          .filter((val) => {
-            if (searchTerm == "") {
-              return null;
-            } else if (
-              val.name.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              return val;
-            }
-          })
-          .map((item) => (
-            <BookCard key={item.id} {...item} />
-            // <div>{item.name}</div>
-          ))}
-      </div>
-      {/* <button onClick={showMoreItems}>Load More</button> */}
-    </div>
+    </Wrapper>
   );
 };
 

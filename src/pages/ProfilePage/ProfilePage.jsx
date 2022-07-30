@@ -1,14 +1,17 @@
 import React from "react";
+import Wrapper from "../../components/Wrapper";
 import { UserAuth } from "../../context/UserAuthContext";
 
 const ProfilePage = () => {
-  const { user } = UserAuth();
-  console.log(user.uid);
+  const {
+    user: { name, email },
+  } = UserAuth();
+
   return (
-    <div>
-      ProfilePage
-      <h1>Email: {user && user.email}</h1>
-    </div>
+    <Wrapper>
+      <p>Username: {name}</p>
+      <p>Email: {email}</p>
+    </Wrapper>
   );
 };
 

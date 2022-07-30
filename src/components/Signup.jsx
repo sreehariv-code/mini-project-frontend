@@ -4,17 +4,12 @@ import "./Login.css";
 import { UserAuth } from "../context/UserAuthContext";
 
 const SignUp = () => {
-  const [profile, setProfile] = useState({
-    emaiil: "",
-    username: "",
-    uuid: "",
-  });
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { createUser, user } = UserAuth();
+  const { createUser } = UserAuth();
   // const elementArray = [];
 
   const handleSubmit = async (e) => {
@@ -22,7 +17,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      await createUser(email, password);
+      await createUser(userName, email, password);
       navigate("/");
 
       console.log(elementArray);
