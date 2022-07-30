@@ -5,14 +5,24 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-
+import { db } from "../firebase";
 import { auth } from "../firebase";
 
 const UserContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  //Create user (Registration)
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+  //Signout
+  const logout = () => {
+    return signOut(auth);
+  };
+
+  //Login User (Login Page)
+  const signIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   useEffect(() => {
@@ -25,7 +35,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [setUser]);
 
   return (
-    <UserContext.Provider value={{ createUser, user }}>
+    <UserContext.Provider value={{ signIn, logout, createUser, user }}>
       {children}
     </UserContext.Provider>
   );

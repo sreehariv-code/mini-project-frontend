@@ -2,7 +2,8 @@ import React from "react";
 import { UserAuth } from "../../context/UserAuthContext";
 
 const ProfilePage = () => {
-  const { user, logout } = UserAuth();
+  const { user } = UserAuth();
+  console.log(user.uid);
   return (
     <div>
       ProfilePage

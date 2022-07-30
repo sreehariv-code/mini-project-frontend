@@ -9,7 +9,9 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 // import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import Navbar from "./components/Navbar/Navbar";
+import SinglePageBook from "./components/SinglePageBook/SinglePageBook";
 import { Routes, Route } from "react-router-dom";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   // console.log(userData);
@@ -22,11 +24,14 @@ function App() {
         <Navbar />
         <div className="main-container">
           <Routes>
-            <Route element={<HomePage />} path="/" exact />
-            <Route element={<SearchPage />} path="/search" />
-            <Route element={<Login />} path="/login" />
+            <Route element={<Login />} path="/" />
             <Route element={<Signup />} path="/signup" />
-            <Route element={<ProfilePage />} path="/profile" />
+            <Route element={<ProtectedRoutes />}>
+              <Route element={<HomePage />} path="/home" exact />
+              <Route element={<SearchPage />} path="/search" />
+              <Route element={<SinglePageBook />} path="/book/:id" />
+              <Route element={<ProfilePage />} path="/profile" />
+            </Route>
           </Routes>
         </div>
       </div>

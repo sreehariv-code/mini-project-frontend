@@ -1,13 +1,26 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 // import HamburgerButton from "../HamburgerButton/HamburgerButton";
 import "./Navbar.css";
+import { UserAuth } from "../../context/UserAuthContext";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const { logout } = UserAuth();
   const [sidebar, setSidebar] = useState(false); //button state
   // console.log(sidebar);
   // const [btnActive, setBtnActive] = useState(false);
   // console.log(sidebar, btnActive);
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/");
+      console.log("Your are Logged out");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   const toggleSideNavbar = () => {
     // setBtnActive((prevState) => !prevState);
@@ -46,6 +59,9 @@ const Navbar = () => {
         <Link onClick={toggleSideNavbar} to="/profile">
           Profile
         </Link>
+        <button onClick={handleLogout} className="logout-button">
+          Logout
+        </button>
       </div>
     </nav>
   );

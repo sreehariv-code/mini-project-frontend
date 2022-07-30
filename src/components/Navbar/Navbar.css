@@ -31,7 +31,7 @@
   align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
-  gap: 20px;
+  gap: 3rem;
 }
 
 .nav-links a {
@@ -82,6 +82,27 @@
   left: 15px;
 }
 
+.logout-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 100px;
+  padding: 15px;
+  border-radius: 8px;
+  background: #8e2de2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #4a00e0,
+    #8e2de2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #4a00e0,
+    #8e2de2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+}
+
 .hamburger-button.active span:last-child {
   transform: rotate(45deg);
   bottom: 18px;
@@ -101,6 +122,13 @@
 @media screen and (max-width: 768px) {
   .brand-name {
     font-size: 20px;
+  }
+
+  .logout-button{
+    width:80%;
+    background:#fff;
+    color:#000;
+    font-weight:bold;
   }
   .nav-links {
     flex-direction: column;

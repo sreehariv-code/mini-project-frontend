@@ -4,19 +4,28 @@ import "./Login.css";
 import { UserAuth } from "../context/UserAuthContext";
 
 const SignUp = () => {
-  // const [user, setUser] = useState("");
+  const [profile, setProfile] = useState({
+    emaiil: "",
+    username: "",
+    uuid: "",
+  });
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { createUser } = UserAuth();
+  const { createUser, user } = UserAuth();
+  // const elementArray = [];
 
   const handleSubmit = async (e) => {
     setError("");
     e.preventDefault();
+
     try {
       await createUser(email, password);
       navigate("/");
+
+      console.log(elementArray);
     } catch (err) {
       setError(err.message);
     }
@@ -27,16 +36,16 @@ const SignUp = () => {
         <h1>Welcome</h1>
         {error && <div className="signup-error">{error}</div>}
         <form className="form-container" onSubmit={handleSubmit}>
-          {/* <div className="username-container">
+          <div className="username-container">
             <label>Username</label>
             <input
               type="text"
               required
               placeholder="eg:John Doe"
               name="username"
-              onChange={(e) => setUser(e.target.value)}
+              onChange={(e) => setUserName(e.target.value)}
             />
-          </div> */}
+          </div>
           <div className="email-container">
             <label>Email</label>
             <input
