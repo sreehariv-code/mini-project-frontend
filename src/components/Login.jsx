@@ -17,7 +17,7 @@ const Login = () => {
     setError("");
     try {
       await signIn(email, password);
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       setError(err.message);
       console.log(err.message);
@@ -27,7 +27,7 @@ const Login = () => {
     <div className="login-page-container">
       <div className="login-form">
         <h1>Login</h1>
-        {error && <div>{error}</div>}
+        {error && <div className="error-alert">{error}</div>}
         <form onSubmit={handleLogin} className="form-container">
           <div className="email-container">
             <input

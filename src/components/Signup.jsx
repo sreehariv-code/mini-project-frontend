@@ -18,7 +18,7 @@ const SignUp = () => {
 
     try {
       await createUser(userName, email, password);
-      navigate("/home");
+      navigate("/");
 
       console.log(elementArray);
     } catch (err) {

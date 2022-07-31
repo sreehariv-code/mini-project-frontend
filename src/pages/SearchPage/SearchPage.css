@@ -15,6 +15,10 @@
     padding:3rem;
 }
 
+.searched-contents a{
+    text-decoration: none;
+}
+
 @media screen and (max-width:500px) {
     .searched-contents{
         flex-direction: column;

@@ -1,0 +1,19 @@
+.single-page-container{
+    width: 100%;
+    padding: 0 4rem;
+    max-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-image{
+    max-width: 229px;
+max-height: 346px;
+}
+
+.book-right-content{
+    /* background:red; */
+    width: 70%;
+    padding-top:20px;
+    padding-left:5rem;
+}

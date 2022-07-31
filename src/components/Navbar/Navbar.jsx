@@ -16,7 +16,7 @@ const Navbar = () => {
     try {
       setSidebar(false);
       await logout();
-      navigate("/");
+      navigate("/login");
       console.log("Your are Logged out");
       // console.log(user);
     } catch (error) {
@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="brand-name">
-        <Link to="/home">
+        <Link to="/">
           <h1>DigiLib</h1>
         </Link>
       </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
       </div>
       {/*<HamburgerButton sidebar={sidebar} setSidebar={setSidebar} />*/}
       <div className={sidenavState()}>
-        <Link onClick={sideBarFalse} to="/home">
+        <Link onClick={sideBarFalse} to="/">
           Home
         </Link>
         {!user.uid && (

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import BookCard from "../../components/BookCard/BookCard";
+import { Link } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
 import { DataContext } from "../../utils/DataContext";
 import "./SearchPage.css";
@@ -41,7 +42,9 @@ const SearchPage = () => {
               }
             })
             .map((item) => (
-              <BookCard key={item.id} {...item} />
+              <Link className="book-links" to={`/book/${item.id}`}>
+                <BookCard key={item.id} {...item} />
+              </Link>
               // <div>{item.name}</div>
             ))}
         </div>

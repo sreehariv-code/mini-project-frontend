@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { DataContext } from "../../utils/DataContext";
 import BookCard from "../../components/BookCard/BookCard";
 import "./HomePage.css";
@@ -22,22 +23,9 @@ const HomePage = () => {
       <h1 className="user-name">Welcome {user.name} </h1>
       <div className="book-section">
         {booksArray.map((book) => (
-          <BookCard key={book.id} {...book} />
-        ))}
-      </div>
-      <div className="book-section">
-        {booksArray.map((book) => (
-          <BookCard key={book.id} {...book} />
-        ))}
-      </div>
-      <div className="book-section">
-        {booksArray.map((book) => (
-          <BookCard key={book.id} {...book} />
-        ))}
-      </div>
-      <div className="book-section">
-        {booksArray.map((book) => (
-          <BookCard key={book.id} {...book} />
+          <Link className="book-links" to={`/book/${book.id}`}>
+            <BookCard key={book.id} {...book} />
+          </Link>
         ))}
       </div>
     </Wrapper>
