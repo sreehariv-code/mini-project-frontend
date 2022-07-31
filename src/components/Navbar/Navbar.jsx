@@ -16,7 +16,7 @@ const Navbar = () => {
     try {
       setSidebar(false);
       await logout();
-      navigate("/");
+      navigate("/login");
       console.log("Your are Logged out");
       console.log(user);
     } catch (error) {
