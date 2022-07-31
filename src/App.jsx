@@ -52,14 +52,14 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route element={<ProtectedRoutes />}>
-              <Route element={<HomePage />} path="/home" exact />
+              <Route element={<HomePage />} path="/" exact />
               <Route element={<SearchPage />} path="/search" />
               <Route element={<SinglePageBook />} path="/book/:id" />
               <Route element={<ProfilePage />} path="/profile" />
             </Route>
           </Route>
           <Route element={<LayoutTwo />}>
-            <Route element={<Login />} path="/" />
+            <Route element={<Login />} path="/login" />
             <Route element={<Signup />} path="/signup" />
           </Route>
         </Routes>

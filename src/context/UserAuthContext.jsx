@@ -5,8 +5,8 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { db } from "../firebase";
-import { auth } from "../firebase";
+import { db } from "../firebase.config";
+import { auth } from "../firebase.config";
 import {
   addDoc,
   collection,
@@ -33,7 +33,7 @@ export const AuthContextProvider = ({ children }) => {
       email,
       password
     );
-    console.log(Signeduser);
+
     //create an obj with email,username,Signeduser.ui
     //
     const docRef = await addDoc(collection(db, "users"), {
@@ -49,7 +49,7 @@ export const AuthContextProvider = ({ children }) => {
     setUser({
       name: "",
       email: "",
-      uid: null,
+      uid: "",
     });
   };
 
@@ -59,7 +59,6 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const getUser = async (uid) => {
-    console.log("called ", uid);
     const queue = query(collection(db, "users"), where("uid", "==", uid));
 
     const querySnapshot = await getDocs(queue);

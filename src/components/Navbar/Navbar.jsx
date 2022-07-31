@@ -18,6 +18,7 @@ const Navbar = () => {
       await logout();
       navigate("/");
       console.log("Your are Logged out");
+      console.log(user);
     } catch (error) {
       console.log(error.message);
     }

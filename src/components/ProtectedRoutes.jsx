@@ -6,7 +6,7 @@ const ProtectedRoutes = () => {
   const { user } = UserAuth();
   // const [login,isLogin] = useState();
   // console.log(user);
-  return user ? <Outlet /> : <Navigate to="/" />;
+  return user ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default ProtectedRoutes;
