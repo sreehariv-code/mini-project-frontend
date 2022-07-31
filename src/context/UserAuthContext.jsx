@@ -24,6 +24,7 @@ export const AuthContextProvider = ({ children }) => {
     email: "",
     uid: "",
   });
+  const [loggedIn, setLoggedIn] = useState();
   // const [name, setName] = useState("");
   // const [email, setEmail] = useState();
   //Create user (Registration)
@@ -79,8 +80,8 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
+        console.log(currentUser.uid);
         setUser((prevState) => {
-          // console.table(prevState);
           const newState = {
             ...prevState,
             uid: currentUser.uid,
@@ -88,7 +89,12 @@ export const AuthContextProvider = ({ children }) => {
           return newState;
         });
         getUser(currentUser.uid);
+        setLoggedIn(true);
       }
+      if (!currentUser) {
+        setLoggedIn(false);
+      }
+      console.log(loggedIn);
     });
     return () => {
       unsubscribe();
@@ -96,7 +102,9 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ signIn, logout, createUser, user }}>
+    <UserContext.Provider
+      value={{ signIn, logout, createUser, user, loggedIn }}
+    >
       {children}
     </UserContext.Provider>
   );
