@@ -52,11 +52,11 @@ const Navbar = () => {
       </div>
       {/*<HamburgerButton sidebar={sidebar} setSidebar={setSidebar} />*/}
       <div className={sidenavState()}>
-        <Link onClick={sideBarFalse} to="/home">
+        <Link onClick={sideBarFalse} to="/">
           Home
         </Link>
         {!user.uid && (
-          <Link onClick={sideBarFalse} to="/">
+          <Link onClick={sideBarFalse} to="/login">
             Login
           </Link>
         )}
