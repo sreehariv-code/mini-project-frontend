@@ -23,7 +23,7 @@ function App() {
     return (
       <div className="navbar">
         <div className="brand-name">
-          <Link to="/home">
+          <Link to="/login">
             <h1>DigiLib</h1>
           </Link>
         </div>

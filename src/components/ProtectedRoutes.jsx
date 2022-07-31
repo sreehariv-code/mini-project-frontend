@@ -5,8 +5,8 @@ import { UserAuth } from "../context/UserAuthContext";
 const ProtectedRoutes = () => {
   const { user } = UserAuth();
   // const [login,isLogin] = useState();
-  // console.log(user);
-  return user ? <Outlet /> : <Navigate to="/login" />;
+  // console.log(user.uid);
+  return user.uid === "" ? <Navigate to="/login" /> : <Outlet />;
 };
 
 export default ProtectedRoutes;
