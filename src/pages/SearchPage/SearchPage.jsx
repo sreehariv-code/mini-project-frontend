@@ -42,7 +42,11 @@ const SearchPage = () => {
               }
             })
             .map((item) => (
-              <Link className="book-links" to={`/book/${item.id}`}>
+              <Link
+                key={item.key}
+                className="book-links"
+                to={`/book/${item.id}`}
+              >
                 <BookCard key={item.id} {...item} />
               </Link>
               // <div>{item.name}</div>

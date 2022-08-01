@@ -5,6 +5,7 @@
   align-items: center;
   position: fixed;
   width: 100%;
+  z-index: 100000;
   background: #fff;
 }
 
@@ -109,6 +110,8 @@
   right: 14px;
   z-index: -1;
 }
+
+/*Mobile View*/
 @media screen and (max-width: 768px) {
   .hamburger-button {
     display: flex;
@@ -134,7 +137,7 @@
     flex-direction: column;
     position: absolute;
     border-radius: 20px;
-
+    
     top: 120px;
     display: none;
     background: rgba(142, 45, 226);

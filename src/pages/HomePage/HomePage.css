@@ -5,7 +5,8 @@
   display: flex;
   margin-bottom: 20px;
   gap: 20px;
-  padding-left: 20px;
+  padding-left: 3.5rem;
+  padding-right:2.5rem;
   overflow-x: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

@@ -22,7 +22,7 @@ const bookData = {
       author: "Carl Hamacher",
       imgurl:
         "https://cdn.img.gen.in/assets/business/2596/portfolio/37689/2596_637874749044343296.png?rendered=true&width=500",
-      count: 8,
+      count: 0,
     },
   ],
 };

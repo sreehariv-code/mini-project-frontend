@@ -16,7 +16,7 @@ const Navbar = () => {
     try {
       setSidebar(false);
       await logout();
-      navigate("/login");
+
       console.log("Your are Logged out");
       // console.log(user);
     } catch (error) {
@@ -56,7 +56,7 @@ const Navbar = () => {
           Home
         </Link>
         {!user.uid && (
-          <Link onClick={sideBarFalse} to="/">
+          <Link onClick={sideBarFalse} to="/login">
             Login
           </Link>
         )}

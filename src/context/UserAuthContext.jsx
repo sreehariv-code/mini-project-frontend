@@ -25,8 +25,7 @@ export const AuthContextProvider = ({ children }) => {
     uid: "",
   });
   const [loggedIn, setLoggedIn] = useState();
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState();
+
   //Create user (Registration)
   const createUser = async (userName, email, password) => {
     const Signeduser = await createUserWithEmailAndPassword(
@@ -42,11 +41,12 @@ export const AuthContextProvider = ({ children }) => {
       email,
       uid: Signeduser.user.uid,
     });
-    console.log(docRef);
+    // console.log(docRef);
   };
   //Signout
   const logout = async () => {
     await signOut(auth);
+    // setLoggedIn(false);
     setUser({
       name: "",
       email: "",
@@ -74,13 +74,16 @@ export const AuthContextProvider = ({ children }) => {
         };
         return newState;
       });
+      console.log(user);
     });
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
       if (currentUser) {
-        console.log(currentUser.uid);
+        // console.log(currentUser);
+        setLoggedIn(true);
         setUser((prevState) => {
           const newState = {
             ...prevState,
@@ -89,12 +92,9 @@ export const AuthContextProvider = ({ children }) => {
           return newState;
         });
         getUser(currentUser.uid);
-        setLoggedIn(true);
+
+        // console.log(loggedIn);
       }
-      if (!currentUser) {
-        setLoggedIn(false);
-      }
-      console.log(loggedIn);
     });
     return () => {
       unsubscribe();

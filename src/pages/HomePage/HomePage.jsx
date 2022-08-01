@@ -9,6 +9,7 @@ import Wrapper from "../../components/Wrapper";
 const HomePage = () => {
   const data = useContext(DataContext);
   const bookData = data.bookData;
+  console.log(bookData);
   const [books, setBooks] = useState(bookData);
   const booksArray = books.books;
 
@@ -20,10 +21,10 @@ const HomePage = () => {
   // console.log(name);
   return (
     <Wrapper>
-      <h1 className="user-name">Welcome {user.name} </h1>
+      <h1 className="user-name">Welcome &nbsp;{user.name} </h1>
       <div className="book-section">
         {booksArray.map((book) => (
-          <Link className="book-links" to={`/book/${book.id}`}>
+          <Link key={book.key} className="book-links" to={`/book/${book.id}`}>
             <BookCard key={book.id} {...book} />
           </Link>
         ))}
