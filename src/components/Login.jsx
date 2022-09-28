@@ -5,7 +5,7 @@ import { UserAuth } from "../context/UserAuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signIn } = UserAuth();
+  const { signIn, loggedIn } = UserAuth();
 
   //Login function
   const [email, setEmail] = useState("");

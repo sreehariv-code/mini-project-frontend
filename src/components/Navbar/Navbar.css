@@ -83,7 +83,8 @@
   left: 15px;
 }
 
-.logout-button {
+.nav-links a.logout-button {
+  text-align: center;
   cursor: pointer;
   border: none;
   outline: none;
@@ -127,17 +128,18 @@
     font-size: 20px;
   }
 
-  .logout-button{
-    width:80%;
-    background:#fff;
-    color:#000;
-    font-weight:bold;
+  .nav-links a.logout-button {
+    width: 80%;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
   }
   .nav-links {
     flex-direction: column;
     position: absolute;
     border-radius: 20px;
-    
+
     top: 120px;
     display: none;
     background: rgba(142, 45, 226);

@@ -67,9 +67,13 @@ const Navbar = () => {
           Profile
         </Link>
         {user.uid && (
-          <button onClick={handleLogout} className="logout-button">
+          <Link
+            to="/login"
+            onClick={handleLogout}
+            className="logout-button important"
+          >
             Logout
-          </button>
+          </Link>
         )}
       </div>
     </nav>

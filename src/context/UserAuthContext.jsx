@@ -74,15 +74,16 @@ export const AuthContextProvider = ({ children }) => {
         };
         return newState;
       });
-      console.log(user);
+      // console.log(user);
     });
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
+      // console.log(currentUser);
       if (currentUser) {
         // console.log(currentUser);
+
         setLoggedIn(true);
         setUser((prevState) => {
           const newState = {
@@ -101,10 +102,10 @@ export const AuthContextProvider = ({ children }) => {
     };
   }, []);
 
+  console.log(loggedIn);
+
   return (
-    <UserContext.Provider
-      value={{ signIn, logout, createUser, user, loggedIn }}
-    >
+    <UserContext.Provider value={{ signIn, logout, createUser, user }}>
       {children}
     </UserContext.Provider>
   );

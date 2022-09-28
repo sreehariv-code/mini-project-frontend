@@ -14,7 +14,7 @@ const bookData = {
       author: "Andrew S. Tanenbaum",
       imgurl:
         "https://images-na.ssl-images-amazon.com/images/I/51+WGwXNHQL.jpg",
-      count: 7,
+      count: 0,
     },
     {
       id: 3,
@@ -22,7 +22,7 @@ const bookData = {
       author: "Carl Hamacher",
       imgurl:
         "https://cdn.img.gen.in/assets/business/2596/portfolio/37689/2596_637874749044343296.png?rendered=true&width=500",
-      count: 0,
+      count: 4,
     },
   ],
 };
