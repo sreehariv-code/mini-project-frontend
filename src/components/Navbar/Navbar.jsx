@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="brand-name">
-        <Link to="/">
+        <Link to="/home">
           <h1>DigiLib</h1>
         </Link>
       </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
       </div>
       {/*<HamburgerButton sidebar={sidebar} setSidebar={setSidebar} />*/}
       <div className={sidenavState()}>
-        <Link onClick={sideBarFalse} to="/">
+        <Link onClick={sideBarFalse} to="/home">
           Home
         </Link>
         {!user.uid && (
@@ -68,7 +68,7 @@ const Navbar = () => {
         </Link>
         {user.uid && (
           <Link
-            to="/login"
+            to="/"
             onClick={handleLogout}
             className="logout-button important"
           >
