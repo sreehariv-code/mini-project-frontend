@@ -56,7 +56,7 @@ const Navbar = () => {
           Home
         </Link>
         {!user.uid && (
-          <Link onClick={sideBarFalse} to="/login">
+          <Link onClick={sideBarFalse} to="/">
             Login
           </Link>
         )}

@@ -8,7 +8,7 @@ const ProtectedRoutes = () => {
   // console.log(loggedIn);
   console.log(user.uid);
 
-  return user ? <Outlet /> : <Navigate to="/login" />;
+  return user.uid !== " " ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default ProtectedRoutes;
